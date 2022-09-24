@@ -7,7 +7,7 @@ from plotly.subplots import make_subplots
 import pandas as pd
 
 df = pd.read_csv(
-    'data\probability_of_death_global.csv'
+    'probability_of_death_global.csv'
 )
 
 sorted_age_groups = [
