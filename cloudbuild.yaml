@@ -1,5 +1,15 @@
 steps:
+# Docker Build
 - name: 'gcr.io/cloud-builders/docker'
-  agrs: ['build', '-t', 'gcr.io/gbd-dash/gbd_dash_app', '.']
+  args: [
+    'build', '-t', 
+    'us-central1-docker.pkg.dev/gbd-dash/nikitiusivanov/dash_app', 
+    '.'
+  ]
+
+# Docker Push
 - name: 'gcr.io/cloud-builders/docker'
-  agrs: ['push', '-t', 'gcr.io/gbd-dash/gbd_dash_app', '.']
+  args: [
+    'push', 
+    'us-central1-docker.pkg.dev/gbd-dash/nikitiusivanov/dash_app'
+  ]
