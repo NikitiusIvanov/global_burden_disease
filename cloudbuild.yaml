@@ -1,0 +1,5 @@
+steps:
+- name: 'gcr.io/cloud-builders/docker'
+  agrs: ['build', '-t', 'gcr.io/gbd-dash/gbd_dash_app', '.']
+- name: 'gcr.io/cloud-builders/docker'
+  agrs: ['push', '-t', 'gcr.io/gbd-dash/gbd_dash_app', '.']
