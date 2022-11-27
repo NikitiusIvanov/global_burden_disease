@@ -2,8 +2,9 @@ steps:
 # Docker Build
 - name: 'gcr.io/cloud-builders/docker'
   args: [
-    'build', '-t', 
-    'us-central1-docker.pkg.dev/gbd-dash/nikitiusivanov/dash_app', 
+    'build',
+    '-t', 
+    'gcr.io/gbd-dash/nikitiusivanov/dash_app', 
     '.'
   ]
 
@@ -11,5 +12,12 @@ steps:
 - name: 'gcr.io/cloud-builders/docker'
   args: [
     'push', 
-    'us-central1-docker.pkg.dev/gbd-dash/nikitiusivanov/dash_app'
+    'gcr.io/gbd-dash/nikitiusivanov/dash_app'
   ]
+
+# Deploy container image to Cloud Run
+- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+  entrypoint: gcloud
+  args: ['run', 'deploy', 'SERVICE-NAME', '--image', 'gcr.io/gbd-dash/gbd_app', '--region', 'us-central1']
+images:
+- gcr.io/gbd-dash/gbd_app
